@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "dj_jwt_test"
+version = "0.1.0"
+description = ""
+authors = ["Pavel Slabko <slabkopg@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+djangorestframework-simplejwt = "^4.8.0"
+django-filter = "^2.4.0"
+drf-spectacular = "^0.17.3"
+djoser = "^2.1.0"
+drf-yasg = "^1.20.0"
+django-cors-headers = "^3.8.0"
+
+[tool.poetry.dev-dependencies]
+bpython = "^0.21"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
