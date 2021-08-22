@@ -1,0 +1,27 @@
+version: "3.4"
+
+services:
+
+  web-dev:
+    build:
+      context: ./dj_djoser
+      dockerfile: ../system/docker/django/Dockerfile
+      target: development
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - ./dj_djoser:/app
+    ports:
+      - "8001:8001"
+
+  web-prod:
+    build:
+      context: ./dj_djoser
+      dockerfile: ../system/docker/django/Dockerfile
+      target: production
+    command: gunicorn dj_djoser.asgi:application -k uvicorn.workers.UvicornWorker
+    volumes:
+      - ./dj_djoser:/app
+    ports:
+      - "8000:8000"
+
+#  nginx: TODO
